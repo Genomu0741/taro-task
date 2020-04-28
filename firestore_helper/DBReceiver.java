@@ -18,12 +18,18 @@ public abstract class DBReceiver extends BroadcastReceiver {
         String string = intent.getStringExtra(DES_STR);
         List list = intent.getParcelableArrayListExtra(DES_LIST);
         Serializable pojo = intent.getSerializableExtra(DES_POJO);
+        if(list!=null){
+            onReceive(list);
+        }
         onReceive(string);
-        onReceive(list);
-        onReceive(pojo);
+
+        if(pojo!=null){
+            onReceive(pojo);
+        }
+
     }
 
-    public abstract void onReceive(String receivedString);
-    public abstract void onReceive(List receivedList);
-    public abstract void onReceive(Object receivedPOJO);
+    public void onReceive(String receivedString){}
+    public void onReceive(List receivedList){}
+    public void onReceive(Object receivedPOJO){}
 }
