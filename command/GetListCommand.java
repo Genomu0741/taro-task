@@ -27,6 +27,11 @@ public class GetListCommand extends DBCommand implements DBEmcee {
         this.E = E;
     }
 
+    public GetListCommand(GetListCommand command) {
+        super(command.hanWen, command.activity);
+        this.E = command.E;
+    }
+
     @Override
     public void setCommandName() {
         this.commandName = "抓取清單";
