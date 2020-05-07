@@ -12,7 +12,7 @@ public class SaveMan extends StorageMan {
     }
 
     public void saveImage(Bitmap bitmap){
-        new SaveImageTask(storeKey,activity).execute(bitmap);
+        new SaveImageTask(getParseKey(),activity).execute(bitmap);
     }
 
     public void uploadImage(Uri uri){

@@ -1,4 +1,4 @@
-﻿package genomu.fire_image_helper;
+package genomu.fire_image_helper;
 
 import android.Manifest;
 import android.app.Activity;

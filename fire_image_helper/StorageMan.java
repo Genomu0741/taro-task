@@ -20,4 +20,9 @@ public class StorageMan {
     public void setOnProgressListener(OnProgressListener<? super UploadTask.TaskSnapshot> progressListener) {
         this.progressListener = progressListener;
     }
+
+    public String getParseKey(){
+        String[] resolving = storeKey.split("/");
+        return resolving[resolving.length-1];
+    }
 }

@@ -1,7 +1,6 @@
-﻿package genomu.fire_image_helper;
+package genomu.fire_image_helper;
 
 import android.app.Activity;
-import android.database.Observable;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.Log;
@@ -44,18 +43,18 @@ public class LoadMan extends StorageMan {
 
             }
         });
-        loadImageTask.execute(RawImageHandler.getJpg(activity,storeKey));
+        loadImageTask.execute(RawImageHandler.getJpg(activity,getParseKey()));
     }
 
     private void downloadImage(final ImageView imageView, final ProgressBar bar) {
         if(bar!=null){
             bar.setVisibility(View.VISIBLE);
         }
-        faFa.seekData(RawImageHandler.getJpg(activity,storeKey)).addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
+        faFa.seekData(RawImageHandler.getJpg(activity,getParseKey())).addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
                 if(task.isSuccessful()){
-                    imageView.setImageURI(Uri.fromFile(RawImageHandler.getJpg(activity,storeKey)));
+                    imageView.setImageURI(Uri.fromFile(RawImageHandler.getJpg(activity,getParseKey())));
                 }else {
                     Toast.makeText(activity,"取得照片失敗",Toast.LENGTH_SHORT).show();
                 }

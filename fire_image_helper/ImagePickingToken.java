@@ -3,7 +3,6 @@ package genomu.fire_image_helper;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 
 
 import androidx.annotation.CallSuper;
@@ -12,11 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import static com.genomu.fire_image_helper.ImagePermissionHelper.IMAGE_PICK_CODE;
+import static genomu.fire_image_helper.ImagePermissionHelper.IMAGE_PICK_CODE;
 
 public abstract class ImagePickingToken extends AppCompatActivity {
 
