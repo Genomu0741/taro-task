@@ -3,6 +3,7 @@ package genomu.firestore_helper;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
 
 import java.io.Serializable;

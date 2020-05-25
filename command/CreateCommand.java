@@ -13,6 +13,7 @@ import com.google.firebase.firestore.Query;
 
 import java.io.Serializable;
 
+import genomu.firestore_helper.ActionClump;
 import genomu.firestore_helper.DBCommand;
 import genomu.firestore_helper.DBEmcee;
 import genomu.firestore_helper.DBReceiver;
@@ -56,7 +57,7 @@ public class CreateCommand extends DBCommand implements DBEmcee {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
                     Serializable item = (Serializable) task.getResult().toObject(POJO.getClass());
-                    Intent intent = new Intent(ACTION01);
+                    Intent intent = new Intent(ActionClump.getAction(POJO.getClass()));
                     intent.putExtra(DBReceiver.DES_POJO,item);
                     activity.sendBroadcast(intent);
                 }

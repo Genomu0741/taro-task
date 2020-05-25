@@ -15,6 +15,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+import genomu.firestore_helper.ActionClump;
 import genomu.firestore_helper.DBCommand;
 import genomu.firestore_helper.DBEmcee;
 import genomu.firestore_helper.DBReceiver;
@@ -48,7 +49,7 @@ public class GetListCommand extends DBCommand implements DBEmcee {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
                     List list = task.getResult().toObjects(E);
-                    Intent intent = new Intent(ACTION01);
+                    Intent intent = new Intent(ActionClump.getAction(E));
                     intent.putParcelableArrayListExtra(DBReceiver.DES_LIST, (ArrayList<? extends Parcelable>) list);
                     activity.sendBroadcast(intent);
                 }else {
